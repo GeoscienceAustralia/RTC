@@ -295,9 +295,9 @@ def create_hdf5_file(product_id, output_hdf5_file, orbit, burst, cfg,
 
     hdf5_obj = h5py.File(output_hdf5_file, 'w')
     hdf5_obj.attrs['Conventions'] = np.bytes_("CF-1.8")
-    hdf5_obj.attrs["contact"] = np.bytes_("operasds@jpl.nasa.gov")
-    hdf5_obj.attrs["institution"] = np.bytes_("NASA JPL")
-    hdf5_obj.attrs["project"] = np.bytes_("OPERA")
+    hdf5_obj.attrs["contact"] = np.bytes_("earth.observation@ga.gov.au")
+    hdf5_obj.attrs["institution"] = np.bytes_("Geoscience Australia")
+    hdf5_obj.attrs["project"] = np.bytes_("SAR-ARD")
     hdf5_obj.attrs["reference_document"] = np.bytes_(
         "Product Specification Document for the OPERA Radiometric"
         " Terrain-Corrected SAR Backscatter from Sentinel-1,"
@@ -617,17 +617,17 @@ def get_metadata_dict(product_id: str,
         'identification/project':
             ['project',
              ALL_PRODUCTS,
-             'OPERA',
+             'SAR-ARD',
              'Project name'],
         'identification/institution':
             ['institution',
              ALL_PRODUCTS,
-             'NASA JPL',
+             'Geoscience Australia',
              'Institution that created this product'],
         'identification/contactInformation':
             ['contact_information',
              ALL_PRODUCTS,
-             'operasds@jpl.nasa.gov',
+             'earth.observation@ga.gov.au',
              'Contact information for producer of this product'],
         'identification/productVersion':
             ['product_version',
@@ -650,7 +650,7 @@ def get_metadata_dict(product_id: str,
         'identification/ceosAnalysisReadyDataProductType':  # 1.3
             ['ceos_analysis_ready_data_product_type',
              ALL_PRODUCTS,
-             'Normalised Radar Backscatter',
+             'NRB',
              'CEOS Analysis Ready Data (CARD) product type'],
         'identification/lookDirection':
             ['look_direction',
@@ -706,7 +706,7 @@ def get_metadata_dict(product_id: str,
         'identification/ceosAnalysisReadyDataDocumentIdentifier':
             ['ceos_analysis_ready_data_document_identifier',
              ALL_PRODUCTS,
-             'https://ceos.org/ard/files/PFS/NRB/v5.5/CARD4L-PFS_NRB_v5.5.pdf',
+             'https://ceos.org/ard/files/PFS/SAR/v1.2/CEOS-ARD_PFS_Synthetic_Aperture_Radar_v1.2.pdf',
              'CEOS Analysis Ready Data (CARD) document identifier'],
         'identification/dataAccess':
             ['product_data_access',
