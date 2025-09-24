@@ -457,6 +457,9 @@ def get_metadata_dict(product_id: str,
     # reformat burst ID to URL data access format used by ASF
     # (e.g., from "t018_038602_iw2" to "T018-038602-iw2")
     burst_id_asf = str(burst_in.burst_id).upper().replace('_', '-')
+    # keep original format for Geoscience Australia (GA) URLs
+    # burst_id_asf -> burst_id_ga in file
+    burst_id_ga = str(burst_in.burst_id)
 
     # create substring "{end_date}"
     end_date_str = burst_in.sensing_stop.strftime('%Y-%m-%d')
@@ -473,7 +476,7 @@ def get_metadata_dict(product_id: str,
     else:
         # replace "{burst_id}"" and "{end_date}" substrings
         product_data_access = product_data_access.format(
-            burst_id=burst_id_asf, end_date=end_date_str)
+            burst_id=burst_id_ga, end_date=end_date_str)
 
     # static layers data access (URL or DOI)
     static_layers_data_access = \
@@ -483,7 +486,7 @@ def get_metadata_dict(product_id: str,
     else:
         # replace "{burst_id}"" and "{end_date}" substrings
         static_layers_data_access = static_layers_data_access.format(
-            burst_id=burst_id_asf, end_date=end_date_str)
+            burst_id=burst_id_ga, end_date=end_date_str)
 
     # platform ID
     if burst_in.platform_id == 'S1A':
