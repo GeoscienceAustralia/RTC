@@ -129,6 +129,11 @@ def populate_product_id(product_id, burst_in, processing_datetime,
     # Populate product_id version
     product_id = product_id.replace('{product_version}', f'v{product_version}')
 
+    # Populate the rtc_s1_static_validity_start_date
+    product_id = product_id.replace(
+        "{rtc_s1_static_validity_start_date}", f"{rtc_s1_static_validity_start_date}"
+    )
+
     if not is_mosaic:
         burst_id_file_name = str(burst_in.burst_id).upper().replace('_', '-')
         product_id = product_id.replace('{burst_id}', f'{burst_id_file_name}')
