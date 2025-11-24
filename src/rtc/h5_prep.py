@@ -466,12 +466,12 @@ def get_metadata_dict(product_id: str,
 
     # create substrings for burst acquisition start times (st)
     # "{burst_st_year}", "{burst_st_month}", "{burst_st_day}", "{burst_st}"
-    burst_st = burst_in.sensing_start.strftime("%Y%m%dT%H%M%S") 
     burst_st_year, burst_st_month, burst_st_day = (
-        f"{burst_st.year}",
-        f"{burst_st.month:02d}", # zero padded month
-        f"{burst_st.day:02d}", # zero padded day
+        f"{burst_in.sensing_start.year}",
+        f"{burst_in.sensing_start.month:02d}", # zero padded month
+        f"{burst_in.sensing_start.day:02d}", # zero padded day
     )
+    burst_st = burst_in.sensing_start.strftime("%Y%m%dT%H%M%S") 
 
     # source data access (URL or DOI)
     source_data_access = cfg_in.groups.input_file_group.source_data_access
