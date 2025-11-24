@@ -464,6 +464,15 @@ def get_metadata_dict(product_id: str,
     # create substring "{end_date}"
     end_date_str = burst_in.sensing_stop.strftime('%Y-%m-%d')
 
+    # create substrings for burst acquisition start times (st)
+    # "{burst_st_year}", "{burst_st_month}", "{burst_st_day}", "{burst_st}"
+    burst_st = burst_in.sensing_start.strftime("%Y%m%dT%H%M%S") 
+    burst_st_year, burst_st_month, burst_st_day = (
+        f"{burst_st.year}",
+        f"{burst_st.month:02d}", # zero padded month
+        f"{burst_st.day:02d}", # zero padded day
+    )
+
     # source data access (URL or DOI)
     source_data_access = cfg_in.groups.input_file_group.source_data_access
     if not source_data_access:
@@ -474,9 +483,15 @@ def get_metadata_dict(product_id: str,
     if not product_data_access:
         product_data_access = '(NOT PROVIDED)'
     else:
-        # replace "{burst_id}"" and "{end_date}" substrings
+        # replace "{end_date}" "{burst_id}" "{burst_st_year}",  
+        # "{burst_st_month}", "{burst_st_dat}", "{burst_st}" substrings
         product_data_access = product_data_access.format(
-            burst_id=burst_id_ga, end_date=end_date_str)
+            burst_id=burst_id_ga, 
+            burst_st_year=burst_st_year,
+            burst_st_month=burst_st_month,
+            burst_st_day=burst_st_day,
+            burst_st=burst_st,
+            end_date=end_date_str)
 
     # static layers data access (URL or DOI)
     static_layers_data_access = \
@@ -484,9 +499,15 @@ def get_metadata_dict(product_id: str,
     if not static_layers_data_access:
         static_layers_data_access = '(NOT PROVIDED)'
     else:
-        # replace "{burst_id}"" and "{end_date}" substrings
+        # replace "{end_date}" "{burst_id}" "{burst_st_year}",  
+        # "{burst_st_month}", "{burst_st_day}", "{burst_st}" substrings
         static_layers_data_access = static_layers_data_access.format(
-            burst_id=burst_id_ga, end_date=end_date_str)
+            burst_id=burst_id_ga, 
+            burst_st_year=burst_st_year,
+            burst_st_month=burst_st_month,
+            burst_st_day=burst_st_day,
+            burst_st=burst_st,
+            end_date=end_date_str)
 
     # platform ID
     if burst_in.platform_id == 'S1A':
