@@ -10,7 +10,9 @@ This main project RTC should be monitored for updates that can be merged into th
 # RTC
 NASA's Observational Products for End-Users from Remote Sensing Analysis (OPERA) Radiometric Terrain-Corrected (RTC) SAR backscatter from Sentinel-1 (RTC-S1) Science Application Software developed by the OPERA Algorithm Development Team at NASA's Jet Propulsion Laboratory (JPL).
 
+### Versioning
 
+To update/bump the version number, both the [Dockerfile](./Docker/Dockerfile) and [version.py](./src/rtc/version.py) files must be updated.
 
 ### Install
 
