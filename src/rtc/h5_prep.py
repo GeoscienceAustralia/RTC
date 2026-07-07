@@ -1641,8 +1641,6 @@ def get_range_azimuth_resolution(burst: Sentinel1BurstSlc):
 
     Notes
     -----
-    https://sentinels.copernicus.eu/web/sentinel/technical-guides/sentinel-1-sar/
-    products-algorithms/level-1/single-look-complex/interferometric-wide-swath
     Values available in:
         Sentinel-1 Product Definition, 
         Document Number: S1-RS-MDA-52-7440
