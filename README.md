@@ -3,6 +3,7 @@
 This repository is a fork of the NASA JPL RTC project detailed below. Changes have been made for creating Geoscience Australia production data. The main changes include:
 -  Updating the isce3 project from 0.15.0 to 0.24.4 to include bug fixes for applying atmospheric corrections identified by GA.
 -  Updates to project metadata to reference Geoscience Australia processing settings and contact details
+-  Changes to enable Extra Wide (EW) SLC processing
 
 This main project RTC should be monitored for updates that can be merged into this repository. For example, if the NASA JPL OPERA team decide to also bump the isce3 version on their main branch.
 
