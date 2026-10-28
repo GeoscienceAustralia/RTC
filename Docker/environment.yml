@@ -7,6 +7,7 @@ dependencies:
   - certifi>=2026.10.23
   - ca-certificates>=2026.10.23
   - gdal>=3.0
+  - libgdal-netcdf
   - s1reader>=0.2.5
   - numpy>=1.20
   - pybind11>=2.5
