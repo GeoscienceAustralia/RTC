@@ -3,6 +3,10 @@
 This repository is a fork of the NASA JPL RTC project detailed below. Changes have been made for creating Geoscience Australia production data. The main changes include:
 -  Updating the isce3 project from 0.15.0 to 0.24.4 to include bug fixes for applying atmospheric corrections identified by GA.
 -  Updates to project metadata to reference Geoscience Australia processing settings and contact details
+-  Moving the conda environment from Python 3.9 to 3.12 and bumping `certifi` and `ca-certificates` versions for security.
+-  Adding `libgdal-netcdf` to the environment. conda-forge GDAL (>=3.9) ships the netCDF driver as a separate plugin, which is required to read HDF5 outputs through `NETCDF:<file>:/data/<pol>`.
+-  Installing Miniforge instead of Miniconda in the Docker image, as Miniconda's default channels require accepting the Anaconda Terms of Service.
+-  Bumping `s1-reader` from 0.2.5 to 0.2.6 to align with the `sar-pipeline` image.
 
 This main project RTC should be monitored for updates that can be merged into this repository. For example, if the NASA JPL OPERA team decide to also bump the isce3 version on their main branch.
 
