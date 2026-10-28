@@ -20,13 +20,13 @@ RUN chmod -R 755 /home/rtc_user &&\
 
 USER rtc_user
 
-ENV CONDA_PREFIX=/home/rtc_user/miniconda3
+ENV CONDA_PREFIX=/home/rtc_user/miniforge3
 
-# install Miniconda
+# install Miniforge
 WORKDIR /home/rtc_user
-RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -o miniconda.sh &&\
-    bash miniconda.sh -b -p ${CONDA_PREFIX} &&\
-    rm $HOME/miniconda.sh
+RUN curl -sSL https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh -o miniforge.sh &&\
+    bash miniforge.sh -b -p ${CONDA_PREFIX} &&\
+    rm $HOME/miniforge.sh
 
 ENV PATH=${CONDA_PREFIX}/bin:${PATH}
 RUN ${CONDA_PREFIX}/bin/conda init bash
