@@ -7,7 +7,7 @@ ARG BASE_IMAGE
 
 LABEL author="OPERA ADT" \
     description="RTC cal/val release R4 (1.0.4) - modified by GA" \
-    version="1.0.6-GA-prod"
+    version="1.0.7-GA-prod"
 
 RUN yum -y update &&\
     yum -y install curl &&\
