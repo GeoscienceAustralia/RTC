@@ -7,6 +7,7 @@ This repository is a fork of the NASA JPL RTC project detailed below. Changes ha
 -  Adding `libgdal-netcdf` to the environment. conda-forge GDAL (>=3.9) ships the netCDF driver as a separate plugin, which is required to read HDF5 outputs through `NETCDF:<file>:/data/<pol>`.
 -  Installing Miniforge instead of Miniconda in the Docker image, as Miniconda's default channels require accepting the Anaconda Terms of Service.
 -  Bumping `s1-reader` from 0.2.5 to 0.2.6 to align with the `sar-pipeline` image.
+-  Minor changes to enable Extra Wide (EW) SLC processing - https://github.com/opera-adt/RTC/commit/6d38c7b8d76810677bd48cf349d0271d96fe6486.
 
 This main project RTC should be monitored for updates that can be merged into this repository. For example, if the NASA JPL OPERA team decide to also bump the isce3 version on their main branch.
 
@@ -64,13 +65,13 @@ python rtc_s1.py <1st product HDF5> <2nd product HDF5>
 ```
 
 # License
-Copyright (c) 2021 California Institute of Technology (“Caltech”). U.S. Government sponsorship acknowledged.
+
+This project is licensed under the Apache License, Version 2.0.
+
+Copyright © 2021 California Institute of Technology (“Caltech”). U.S. Government sponsorship acknowledged.
 
 All rights reserved.
 
-Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+Modifications © 2025 Geoscience Australia.
 
-Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
-Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
-Neither the name of Caltech nor its operating division, the Jet Propulsion Laboratory, nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+See the LICENSE and NOTICE files for full license text and attribution.
