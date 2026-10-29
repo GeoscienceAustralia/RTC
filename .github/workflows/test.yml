@@ -36,7 +36,7 @@ jobs:
       - name: Provision with Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9'
+          python-version: '3.12'
           cache: 'pip'
       
       # Set the conda environment up using Mamba and install dependencies
@@ -53,10 +53,10 @@ jobs:
       - name: Install S1-Reader
         run: |
           curl -sSL \
-            https://github.com/opera-adt/s1-reader/archive/refs/tags/v0.2.5.tar.gz \
+            https://github.com/opera-adt/s1-reader/archive/refs/tags/v0.2.6.tar.gz \
             -o s1_reader_src.tar.gz \
           && tar -xvf s1_reader_src.tar.gz \
-          && ln -s s1-reader-0.2.5 s1-reader \
+          && ln -s s1-reader-0.2.6 s1-reader \
           && rm s1_reader_src.tar.gz \
           && python -m pip install -e ./s1-reader      
 

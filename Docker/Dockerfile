@@ -7,7 +7,7 @@ ARG BASE_IMAGE
 
 LABEL author="OPERA ADT" \
     description="RTC cal/val release R4 (1.0.4) - modified by GA" \
-    version="1.0.6-GA-prod"
+    version="1.0.7-GA-prod"
 
 RUN yum -y update &&\
     yum -y install curl &&\
@@ -20,13 +20,13 @@ RUN chmod -R 755 /home/rtc_user &&\
 
 USER rtc_user
 
-ENV CONDA_PREFIX=/home/rtc_user/miniconda3
+ENV CONDA_PREFIX=/home/rtc_user/miniforge3
 
-# install Miniconda
+# install Miniforge
 WORKDIR /home/rtc_user
-RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -o miniconda.sh &&\
-    bash miniconda.sh -b -p ${CONDA_PREFIX} &&\
-    rm $HOME/miniconda.sh
+RUN curl -sSL https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh -o miniforge.sh &&\
+    bash miniforge.sh -b -p ${CONDA_PREFIX} &&\
+    rm $HOME/miniforge.sh
 
 ENV PATH=${CONDA_PREFIX}/bin:${PATH}
 RUN ${CONDA_PREFIX}/bin/conda init bash
@@ -42,9 +42,9 @@ SHELL ["conda", "run", "-n", "RTC", "/bin/bash", "-c"]
 WORKDIR /home/rtc_user/OPERA
 
 # installing OPERA s1-reader
-RUN curl -sSL https://github.com/isce-framework/s1-reader/archive/refs/tags/v0.2.5.tar.gz -o s1_reader_src.tar.gz &&\
+RUN curl -sSL https://github.com/isce-framework/s1-reader/archive/refs/tags/v0.2.6.tar.gz -o s1_reader_src.tar.gz &&\
     tar -xvf s1_reader_src.tar.gz &&\
-    ln -s s1-reader-0.2.5 s1-reader &&\
+    ln -s s1-reader-0.2.6 s1-reader &&\
     rm s1_reader_src.tar.gz &&\
     python -m pip install ./s1-reader
 
