@@ -2,7 +2,7 @@
 
 REPO=opera
 IMAGE=rtc
-TAG=final_1.0.4
+TAG=1.0.7_GA_prod
 
 docker_build_args=(--rm --force-rm --network host -t $REPO/$IMAGE:$TAG -f Docker/Dockerfile)
 
